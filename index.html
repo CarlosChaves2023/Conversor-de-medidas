@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Medidas</title>
+</head>
+<body>
+    <h1>Conversor de Medidas</h1>
+    <div>
+        <form>
+            <p>
+                <label for="meter">Metros </label>
+                <input type="number" name="meter" id="meter">
+            </p>
+
+            <p>
+                <label for="other">Converter para </label>
+                <select name="other" id="other">
+                    <option value="yard">yard</option>
+                    <option value="feet">feet</option>
+                    <option value="inch">inches</option>
+                    <option value="mile">miles</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="result">Resultado</label>
+                <input type="number" name="result" id="result">   
+            </p>
+            <p>
+               <button onclick="converter(event)">Converter</button>
+               <button type="reset">Limpar</button>
+            </p>
+        </form>
+    </div>
+</body>
+
+<script>
+    function converter(event){
+        event.preventDefault();
+        var metro = document.getElementById('meter').value;
+        var outro = document.getElementById('other').value;
+        var resultado = metro;
+        console.log(outro)
+
+        if (outro == 'yard'){
+            resultado = metro * 1.094
+        } else if (outro == 'feet'){
+            resultado = metro * 3.281
+        } else if (outro == 'inch'){
+            resultado = metro * 39.37
+        } else {
+            resultado = metro / 1609
+        }
+        document.getElementById('result').value = resultado;
+     
+    }
+
+</script>
+</html>
